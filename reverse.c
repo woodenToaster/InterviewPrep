@@ -1,3 +1,5 @@
+//Write code to reverse a C-Style String. 
+
 #include "stdio.h"
 #include "string.h"
 #include "stdlib.h"
@@ -5,9 +7,7 @@
 char* reverse(char *str);
 
 int main(int argc, char* argv[]) {
-
   char *str = argv[1];
-
   char *rStr = reverse(str);
   printf("%s\n", rStr);
   return 0;
@@ -25,7 +25,6 @@ char* reverse(char *str) {
   rStr = &str[end];
 
   while(str != rStr && str < rStr) {
-    //Swap
     char tmp = *str;
     *str = *rStr;
     *rStr = tmp;
