@@ -24,7 +24,7 @@ bool anagram(char *s1, char *s2) {
   char c;
   int index;
 
-  for(int i = 0; i; i++) {
+  for(int i = 0; s1[i] && s2[i]; i++) {
     c = tolower(s1[i]);
     index = c - 97;
     arr[index]++;
@@ -33,11 +33,11 @@ bool anagram(char *s1, char *s2) {
     arr[index]--;
   }
 
-  for(int i = 0; i < 26; i++) {
+  for(auto i : arr) {
     if(arr[i] != 0) {
       return false;
     }
-    return true;
   }
+  return true;
 }
 
