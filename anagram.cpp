@@ -1,20 +1,11 @@
-#include <iostream>
 #include <cctype>
 #include <cstring>
 
-bool anagram(char *s1, char *s2);
-
-int main(int argc, char *argv[]) {
-  char *s1 = argv[1];
-  char *s2 = argv[2];
-
-  bool result = anagram(s1, s2);
-  std::cout << result << '\n';
-
-  return 0;
-}
-
 bool anagram(char *s1, char *s2) {
+  if(!s1 || !s2) {
+    return false;
+  }
+
   int arr[26] = {0};
 
   if(strlen(s1) != strlen(s2)) {
