@@ -1,6 +1,8 @@
 #include "test.h"
 #include <gtest/gtest.h>
 
+/** anagram tests **/
+
 TEST(anagramTest, isAnagram) {
 	char *s1 = "torchwood";
   char *s2 = "doctorwho";
@@ -16,7 +18,8 @@ TEST(anagramTest, isAnagram) {
 
 TEST(anagramTest, noArgs) {
   char *s1, *s2;
-
+  ASSERT_FALSE(anagram(s1, s2));
+  s1 = "1arg";
   ASSERT_FALSE(anagram(s1, s2));
 }
 
@@ -37,6 +40,21 @@ TEST(anagramTest, notAnagram) {
   ASSERT_FALSE(anagram(s5, s6));
   ASSERT_FALSE(anagram(s7, s8));
   ASSERT_FALSE(anagram(s9, s10));
+}
+
+/** rotate image tests **/
+
+TEST(rotate90, baseCase) {
+  int **matrix;
+  matrix[0] = new int[1];
+  matrix[0][0] = 25;
+  rotate90(matrix, 1);
+  int expected[1][1] = {{25}};
+  for(int i = 0; i < 1; i++) {
+    for(int j = 0; j < 1; j++) {
+      ASSERT_EQ(expected[i][j], matrix[i][j]);
+    }
+  }
 }
 
 int main(int argc, char **argv) {

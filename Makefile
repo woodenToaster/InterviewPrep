@@ -28,8 +28,11 @@ gtest_main.a: gtest-all.o gtest_main.o
 anagram.o: anagram.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c anagram.cpp
 
+rotate90.o: rotate90.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c rotate90.cpp
+
 test.o: test.cpp test.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test.cpp
 
-test: anagram.o test.o gtest_main.a
+test: anagram.o rotate90.o test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
