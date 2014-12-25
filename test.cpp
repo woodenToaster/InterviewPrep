@@ -57,6 +57,34 @@ TEST(rotate90, baseCase) {
       ASSERT_EQ(expected[i][j], matrix[i][j]);
     }
   }
+  delete matrix[0];
+}
+
+TEST(rotate90, validRotation) {
+  int ** matrix;
+  matrix[0] = new int[3]{0, 0, 24};
+  matrix[1] = new int[3]{0, 25, 0};
+  matrix[2] = new int[3]{0, 1, 0};
+
+  int expected[3][3] = {
+    {0, 0, 0},
+    {1, 25, 0},
+    {0, 0, 24}
+  };
+
+  rotate90(matrix, 3);
+
+  int i, j;
+  for(i = 0; i < 3; i++) {
+    for(j = 0; j < 3; j++) {
+      std::cout << "Expected[i][j]: " << expected[i][j] << '\n';
+      std::cout << "Matrix[i][j]:   " << matrix[i][j] << '\n';
+      ASSERT_EQ(expected[i][j], matrix[i][j]);
+    }
+  }
+  delete[] matrix[0];
+  delete[] matrix[1];
+  delete[] matrix[2];
 }
 
 int main(int argc, char **argv) {
