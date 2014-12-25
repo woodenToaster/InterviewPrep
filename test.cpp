@@ -1,4 +1,5 @@
 #include "test.h"
+#include <stdexcept>
 #include <gtest/gtest.h>
 
 /** anagram tests **/
@@ -17,10 +18,11 @@ TEST(anagramTest, isAnagram) {
 }
 
 TEST(anagramTest, noArgs) {
-  char *s1, *s2;
-  ASSERT_FALSE(anagram(s1, s2));
+  char *s1 = nullptr;
+  char *s2 = nullptr;
+  ASSERT_THROW(anagram(s1, s2), std::invalid_argument);
   s1 = "1arg";
-  ASSERT_FALSE(anagram(s1, s2));
+  ASSERT_THROW(anagram(s1, s2), std::invalid_argument);
 }
 
 TEST(anagramTest, notAnagram) {

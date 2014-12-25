@@ -1,9 +1,10 @@
 #include <cctype>
 #include <cstring>
+#include <stdexcept>
 
 bool anagram(char *s1, char *s2) {
   if(!s1 || !s2) {
-    return false;
+    throw std::invalid_argument("Anagram() requires 2 arguments.\n");
   }
 
   int arr[26] = {0};
