@@ -19,12 +19,12 @@ void rotate90(int** m, int n) {
 
   int *rowN = new int[n];
   for(int i = 0; i < n; i++) {
-    rowN[i] = m[n-1][i];
+    rowN[i] = m[n-1][n - 1 - i];
   }
 
   int *col0 = new int[n];
   for(int i = 0; i < n; i++) {
-    col0[i] = m[i][0];
+    col0[i] = m[n - i - 1][0];
   }
 
   for(int i = 0; i < n; i++) {
@@ -32,7 +32,7 @@ void rotate90(int** m, int n) {
   }
 
   for(int i = 0; i < n; i++) {
-    m[n-1][i] = colN[n - i - 1];
+    m[n-1][i] = colN[n - 1 - i];
   }
 
   for(int i = 0; i < n; i++) {

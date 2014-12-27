@@ -2,7 +2,9 @@
 #include <stdexcept>
 #include <gtest/gtest.h>
 
+/*******************/
 /** anagram tests **/
+/*******************/
 
 TEST(anagramTest, isAnagram) {
 	char *s1 = "torchwood";
@@ -44,7 +46,9 @@ TEST(anagramTest, notAnagram) {
   ASSERT_FALSE(anagram(s9, s10));
 }
 
+/************************/
 /** rotate image tests **/
+/************************/
 
 TEST(rotate90, baseCase) {
   int **matrix;
@@ -57,11 +61,11 @@ TEST(rotate90, baseCase) {
       ASSERT_EQ(expected[i][j], matrix[i][j]);
     }
   }
-  delete matrix[0];
+  delete[] matrix[0];
 }
 
 TEST(rotate90, validRotation) {
-  int ** matrix;
+  int **matrix;
   matrix[0] = new int[3]{0, 0, 24};
   matrix[1] = new int[3]{0, 25, 0};
   matrix[2] = new int[3]{0, 1, 0};
@@ -77,8 +81,6 @@ TEST(rotate90, validRotation) {
   int i, j;
   for(i = 0; i < 3; i++) {
     for(j = 0; j < 3; j++) {
-      std::cout << "Expected[i][j]: " << expected[i][j] << '\n';
-      std::cout << "Matrix[i][j]:   " << matrix[i][j] << '\n';
       ASSERT_EQ(expected[i][j], matrix[i][j]);
     }
   }
@@ -86,6 +88,10 @@ TEST(rotate90, validRotation) {
   delete[] matrix[1];
   delete[] matrix[2];
 }
+
+/**********/
+/** main **/
+/**********/
 
 int main(int argc, char **argv) {
   testing::InitGoogleTest(&argc, argv);
