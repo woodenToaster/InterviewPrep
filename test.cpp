@@ -1,6 +1,8 @@
-#include "test.h"
-#include <stdexcept>
 #include <gtest/gtest.h>
+#include <stdexcept>
+#include <string>
+#include "test.h"
+#include <vector>
 
 /*******************/
 /** anagram tests **/
@@ -64,29 +66,39 @@ TEST(rotate90, baseCase) {
   delete[] matrix[0];
 }
 
-TEST(rotate90, validRotation) {
-  int **matrix;
-  matrix[0] = new int[3]{0, 0, 24};
-  matrix[1] = new int[3]{0, 25, 0};
-  matrix[2] = new int[3]{0, 1, 0};
+//TEST(rotate90, validRotation) {
+//  int **matrix;
+//  matrix[0] = new int[3]{0, 0, 24};
+//  matrix[1] = new int[3]{0, 25, 0};
+//  matrix[2] = new int[3]{0, 1, 0};
+//
+//  int expected[3][3] = {
+//    {0, 0, 0},
+//    {1, 25, 0},
+//    {0, 0, 24}
+//  };
+//
+//  rotate90(matrix, 3);
+//
+//  int i, j;
+//  for(i = 0; i < 3; i++) {
+//    for(j = 0; j < 3; j++) {
+//      ASSERT_EQ(expected[i][j], matrix[i][j]);
+//    }
+//  }
+//  delete[] matrix[0];
+//  delete[] matrix[1];
+//  delete[] matrix[2];
+//}
 
-  int expected[3][3] = {
-    {0, 0, 0},
-    {1, 25, 0},
-    {0, 0, 24}
-  };
+//**********************//
+//** Binary code test **//
+//**********************//
 
-  rotate90(matrix, 3);
-
-  int i, j;
-  for(i = 0; i < 3; i++) {
-    for(j = 0; j < 3; j++) {
-      ASSERT_EQ(expected[i][j], matrix[i][j]);
-    }
-  }
-  delete[] matrix[0];
-  delete[] matrix[1];
-  delete[] matrix[2];
+TEST(decode, validEncoding) {
+  std::vector<std::string> vec = decode("123210122");
+  ASSERT_EQ(vec[0], "011100011");
+  ASSERT_EQ(vec[1], "NONE");
 }
 
 /**********/

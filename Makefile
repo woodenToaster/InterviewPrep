@@ -31,8 +31,11 @@ anagram.o: anagram.cpp
 rotate90.o: rotate90.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c rotate90.cpp
 
+decode.o: decode.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c decode.cpp
+
 test.o: test.cpp test.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test.cpp
 
-test: anagram.o rotate90.o test.o gtest_main.a
+test: anagram.o rotate90.o decode.o test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@
