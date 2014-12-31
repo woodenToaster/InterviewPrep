@@ -112,6 +112,13 @@ TEST(getProfit, testMax) {
   ASSERT_EQ(0, getProfit(vec2));
 }
 
+TEST(getProfit, testEmptyVector) {
+  std::vector<int> vec = {};
+  std::vector<int> vec1 = {50};
+  ASSERT_EQ(0, getProfit(vec));
+  ASSERT_EQ(0, getProfit(vec1));
+}
+
 /**********/
 /** main **/
 /**********/
