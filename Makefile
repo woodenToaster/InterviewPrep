@@ -5,7 +5,7 @@ CPPFLAGS += -isystem $(GTEST_DIR)/include
 CXXFLAGS += -g -Wall -Wextra -pthread -std=c++11
 TESTS = test
 GTEST_HEADERS = $(GTEST_DIR)/include/gtest/*.h $(GTEST_DIR)/include/gtest/internal/*.h
-GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h 
+GTEST_SRCS_ = $(GTEST_DIR)/src/*.cc $(GTEST_DIR)/src/*.h
 
 
 all: $(TESTS)
@@ -34,8 +34,11 @@ rotate90.o: rotate90.cpp
 decode.o: decode.cpp
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c decode.cpp
 
+getProfit.o: getProfit.cpp
+	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c getProfit.cpp
+
 test.o: test.cpp test.h
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -c test.cpp
 
-test: anagram.o rotate90.o decode.o test.o gtest_main.a
+test: anagram.o rotate90.o decode.o getProfit.o test.o gtest_main.a
 	$(CXX) $(CPPFLAGS) $(CXXFLAGS) -lpthread $^ -o $@

@@ -101,6 +101,17 @@ TEST(decode, validEncoding) {
   ASSERT_EQ(vec[1], "NONE");
 }
 
+//********************//
+//** getProfit test **//
+//********************//
+
+TEST(getProfit, testMax) {
+  std::vector<int> vec1 = {3, 5, 10, 20, 80, 70, 40, 1};
+  std::vector<int> vec2 = {80, 70, 40, 3, 2, 1};
+  ASSERT_EQ(77, getProfit(vec1));
+  ASSERT_EQ(0, getProfit(vec2));
+}
+
 /**********/
 /** main **/
 /**********/
